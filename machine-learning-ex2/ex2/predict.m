@@ -18,7 +18,7 @@ p = sigmoid(X * theta);
 pos = find(p >= 0.5);
 neg = find(p < 0.5);
 p(pos) = 1;
-p(neg) = 0
+p(neg) = 0;
 
 
 

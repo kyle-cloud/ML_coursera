@@ -16,9 +16,10 @@ grad = zeros(size(theta));
 %               You should set J to the cost.
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
-
-
-
+[J, grad] = costFunction(theta, X, y);
+J = J + (theta' * theta -theta(1)^2)* lambda / m / 2;
+grad = grad + theta * lambda / m;
+grad(1)=grad(1)-theta(1)*lambda/m;
 
 
 

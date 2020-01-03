@@ -77,11 +77,15 @@ y_i = y==com_label;
 J = sum(diag((-y_i' * log(h) - (1-y_i)' * log(1-h)))) / m;
 
 % -------------------------------------------------------------
-temp1 = Theta1;
-temp2 = Theta2;
-temp1(1) = 0;
-temp2(1) = 0;
-J += (lambda/2/m * (sum(sum(temp1.^2)) + sum(sum(temp2.^2))));
+r = (lambda / (2 * m)) * (sum(sum(Theta1(:, 2:end) .^ 2))
+    + sum(sum(Theta2(:, 2:end) .^ 2)));
+J = J + r;
+
+%temp1 = Theta1;
+%temp2 = Theta2;
+%temp1(1) = 0;
+%temp2(1) = 0;
+%J += (lambda/2/m * (sum(sum(temp1.^2)) + sum(sum(temp2.^2))));
 % =========================================================================
 
 for row = 1:m

@@ -22,6 +22,10 @@ temp = X * theta - y;
 J = 1 / 2 / m * temp' * temp;
 J = J + lambda / 2 / m * theta(2:end)' * theta(2:end);
 
+temp_theta = theta;
+temp_theta(1) = 0;
+grad = 1 / m * X' * temp + lambda / m * temp_theta;
+
 
 
 
